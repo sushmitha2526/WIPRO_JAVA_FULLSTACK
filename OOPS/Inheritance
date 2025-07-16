@@ -1,0 +1,34 @@
+class Animal
+{
+    void eat(int a, int b)
+    {
+        System.out.println("Animal is eating with parameters: " + a + ", " + b);
+    }
+    
+    void sleep()
+    {
+        System.out.println("Animal is sleeping");
+    }
+
+
+}
+class Dog extends Animal{
+    void bark()
+    {
+        System.out.println("Dog is barking");
+
+    }
+
+}
+class InheritanceEx {
+    public static void main(String[] args)
+    {
+        Dog dog = new Dog();
+        dog.eat(2,3);
+        dog.bark();
+        dog.sleep(); // Dog can also eat because it inherits from Animal
+      //  System.out.println("Dog is a subclass of Animal");
+        //System.out.println("Animal is a superclass of Dog");
+    }
+}
+
