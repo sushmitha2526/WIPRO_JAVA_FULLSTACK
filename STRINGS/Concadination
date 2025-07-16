@@ -1,0 +1,13 @@
+class cancadination {
+public static void main(String[] args){
+String str = "Mark";
+String str1 = "Kate";
+String result = str.concat(str1);
+String s = result.toLowerCase();
+String s1 =result.toUpperCase();
+String s2=result.replace('a','o');
+System.out.println(s);
+System.out.println(s1);
+System.out.println(s2);
+}
+}
