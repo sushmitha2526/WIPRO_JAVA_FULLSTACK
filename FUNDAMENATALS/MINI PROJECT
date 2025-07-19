@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Employee {
+    private static int[] empNo = {1001, 1002, 1003, 1004, 1005, 1006, 1007};
+    private static String[] empName = {"Akshaya", "Sushma", "Rahul", "Chahat", "Ranjan", "Suman", "Tanmay"};
+    private static String[] department = {"R&D", "PM", "Acct", "Front Desk", "Engg", "Manufacturing", "PM"};
+    private static char[] designationCode = {'e', 'c', 'k', 'r', 'm', 'e', 'c'};
+    private static double[] basic = {200000, 30000, 10000, 12000, 50000, 23000, 29000};
+    private static double[] hra = {8000, 12000, 8000, 6000, 20000, 9000, 12000};
+    private static double[] it = {3000, 9000, 1000, 2000, 20000, 4400, 10000};
+
+    private static double getDA(char designationCode) {
+        switch (designationCode) {
+            case 'e':
+                return 20000;
+            case 'c':
+                return 32000;
+            case 'k':
+                return 12000;
+            case 'r':
+                return 15000;
+            case 'm':
+                return 40000;
+            default:
+                return 0;
+        }
+    }
+
+    private static String getDesignation(char designationCode) {
+        switch (designationCode) {
+            case 'e':
+                return "Engineer";
+            case 'c':
+                return "Consultant";
+            case 'k':
+                return "Clerk";
+            case 'r':
+                return "Receptionist";
+            case 'm':
+                return "Manager";
+            default:
+                return "";
+        }
+    }
+
+    public static void displayEmployeeDetails(int empNoToFind) {
+        for (int i = 0; i < empNo.length; i++) {
+            if (empNo[i] == empNoToFind) {
+                double da = getDA(designationCode[i]);
+                double salary = basic[i] + hra[i] + da - it[i];
+                System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "EmpNo", "EmpName", "Department", "Designation", "Salary");
+                System.out.printf("%-10d %-15s %-15s %-15s %-10.2f\n", empNo[i], empName[i], department[i], getDesignation(designationCode[i]), salary);
+                return;
+            }
+        }
+        System.out.println("Employee not found");
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter employee ID: ");
+        int empNoToFind = scanner.nextInt();
+        displayEmployeeDetails(empNoToFind);
+    }
+}
